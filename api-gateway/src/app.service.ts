@@ -18,7 +18,6 @@ export class AppService {
 
   postData(data: PostData): void {
     console.log("sending data to kafka  ", data)
-
     this.billingService.emit('post_data', data)
     return
   }

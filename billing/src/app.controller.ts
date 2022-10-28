@@ -3,7 +3,7 @@ import { EventPattern } from '@nestjs/microservices';
 import { AppService } from './app.service';
 
 @Controller()
-export class AppController {
+export class AppController{
   constructor(private readonly appService: AppService) {}
 
   @Get()
@@ -13,7 +13,6 @@ export class AppController {
 
   @EventPattern('post_data')
   postData(data: any){
-    console.log("received data through kafka")
-    console.log(data.value)
+    return this.appService.postData(data);
   }
 }
