@@ -8,6 +8,7 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       client: {
+        ssl: true,
         brokers: ['localhost:9092'],
       },
       consumer: {
