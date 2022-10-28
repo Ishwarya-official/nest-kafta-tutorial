@@ -13,7 +13,7 @@ import { AppService } from './app.service';
       transport: Transport.KAFKA,
       options: {
         client: {
-          clientId: 'billing',
+          clientId: 'billing-client',
           brokers: ['localhost:9092'],
         },
         consumer: {
