@@ -17,7 +17,7 @@ export class AppController {
   }
 
   @Post()
-  postData(@Body() data: Postdata): void{
-    return this.appService.postData(data)
+  postData(): void{
+    return this.appService.postData()
   }
 }

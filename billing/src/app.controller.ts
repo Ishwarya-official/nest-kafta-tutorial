@@ -1,3 +1,4 @@
+import { ExampleConsumer } from './consumer/example.consumer';
 import { Controller, Get, Post } from '@nestjs/common';
 import { EventPattern } from '@nestjs/microservices';
 import { AppService } from './app.service';
@@ -6,6 +7,7 @@ import { AppService } from './app.service';
 export class AppController{
   constructor(
     private readonly appService: AppService,
+    private readonly consumer: ExampleConsumer
     ) {}
 
   @Get()
@@ -18,8 +20,8 @@ export class AppController{
   //   return this.appService.postData(data);
   // }
 
-  // @Post()
-  // async getData(){
-  //   this.consumer.startBatchConsumer()
-  // }
+  @Post()
+  async getData(){
+    await this.consumer.startBatchConsumer()
+  }
 }
