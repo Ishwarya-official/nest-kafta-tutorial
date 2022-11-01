@@ -33,7 +33,7 @@ export class ExampleConsumer {
    
     try {
       await this.kafkaConsumer.run({
-          // autoCommit: false,
+          autoCommit: false,
 
           eachBatch: async (eachBatchPayload: EachBatchPayload) => {
             console.log("running ")
