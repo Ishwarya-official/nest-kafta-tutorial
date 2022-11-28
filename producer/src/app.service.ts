@@ -7,7 +7,7 @@ class PostData{
 }
 
 export class AppService {
-  private i = 1
+  private i = 0
   constructor(
     @Inject('BILLING SERVICE')
     private readonly billingService: ClientKafka
@@ -23,7 +23,7 @@ export class AppService {
     }
     this.i++;
     console.log("sending data to kafka  ", data)
-    this.billingService.emit('post_data', data)
+    this.billingService.emit('queue.order', data)
     return
   }
 }
